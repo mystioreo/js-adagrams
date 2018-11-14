@@ -10,14 +10,45 @@ const Adagrams = {
           indices.push(randomIndex);
       }
     }
-
     const drawnLetters = indices.map((index) => allLetters[index]);
-
     return drawnLetters;
+  },
 
-    // Implement this method for wave 1
+  usesAvailableLetters(input, lettersInHand) {
+    let valid = true;
+  //   alue = true
+    let inputLetters = input.toUpperCase().split("");
+  //   input_letters = (input.upcase).split('')
+    let handCopy = lettersInHand.map(letter => letter);
+  //   hand_copy = letters_in_hand.map do |letter|
+  //     letter
+  //   end
+
+    inputLetters.forEach((letter) => {
+      if((handCopy).includes(letter)) {
+        let i = handCopy.indexOf(letter);
+        handCopy.splice(i, 1);
+      } else {
+        valid = false;
+      }
+    });
+
+    return valid;
+  //
+  //   input_letters.each do |alphabet|
+  //     if hand_copy.include?(alphabet)
+  //       hand_copy.delete_at(hand_copy.index(alphabet))
+  //     else
+  //       value = false
+  //     end
+  //   end
+  //
+  // return value
+
   },
 };
+
+
 
 // Do not remove this line or your tests will break!
 export default Adagrams;
