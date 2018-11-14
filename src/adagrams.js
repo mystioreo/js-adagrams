@@ -16,13 +16,8 @@ const Adagrams = {
 
   usesAvailableLetters(input, lettersInHand) {
     let valid = true;
-  //   alue = true
     let inputLetters = input.toUpperCase().split("");
-  //   input_letters = (input.upcase).split('')
     let handCopy = lettersInHand.map(letter => letter);
-  //   hand_copy = letters_in_hand.map do |letter|
-  //     letter
-  //   end
 
     inputLetters.forEach((letter) => {
       if((handCopy).includes(letter)) {
@@ -32,20 +27,31 @@ const Adagrams = {
         valid = false;
       }
     });
-
     return valid;
-  //
-  //   input_letters.each do |alphabet|
-  //     if hand_copy.include?(alphabet)
-  //       hand_copy.delete_at(hand_copy.index(alphabet))
-  //     else
-  //       value = false
-  //     end
-  //   end
-  //
-  // return value
-
   },
+
+  scoreWord(word) {
+    if (word != "") {
+
+      let letterValue = {
+        "A": 1, "E": 1, "I": 1,"O": 1,"U": 1,"L": 1,"N": 1,"R": 1,"S": 1,"T": 1,
+       "D": 2, "G": 2, "B": 3, "C": 3,"M": 3,"P": 3, "F": 4, "H": 4,"V": 4,"W": 4,"Y": 4,
+       "K": 5, "J": 8, "X": 8, "Q": 10,"Z": 10}
+
+      let wordArray = word.toUpperCase().split("");
+      let scores = wordArray.map(letter => letterValue[letter]);
+      let score = scores.reduce((sum, element) => sum + element);
+
+      if (word.length > 6) {
+        score += 8;
+      }
+
+      return score;
+
+    } else {
+      return 0;
+    }
+  }
 };
 
 
