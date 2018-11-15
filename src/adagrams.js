@@ -51,7 +51,44 @@ const Adagrams = {
     } else {
       return 0;
     }
-  }
+  },
+
+  highestScoreFrom(words) {
+
+    // def highest_score_from(words)
+    let wordsWithScores = {};
+    //
+    //   words.each do |word|
+    //     words_with_scores["#{word}"] = score_word(word)
+    //   end
+    //
+    words.forEach((word) => {
+      wordsWithScores[word] = Adagrams.scoreWord(word)
+    });
+
+    let bestScore = Math.max(...Object.values(wordsWithScores));
+
+    //   best_score_array = words_with_scores.max_by {|word, score| score}
+    //
+    //   best_score = best_score_array[1]
+    //
+    //   best_word_list = words_with_scores.select{|word, score| score == best_score}
+    //
+    //   best_word = 'reallybigtestword'
+    //
+    //   best_word_list.each do |word, score|
+    //     if word.length == 10
+    //       best_word = word
+    //       return {word: best_word, score: best_score}
+    //     elsif word.length < best_word.length
+    //       best_word = word
+    //     end
+    //   end
+    //
+    //   return {word: best_word, score: best_score}
+    // end
+    //
+  },
 };
 
 
