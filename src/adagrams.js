@@ -81,7 +81,7 @@ const Adagrams = {
 
   highestScoreFrom(words) {
 
-    let scores = words.map(word => Adagrams.scoreWord(word))
+    let scores = words.map(word => this.scoreWord(word))
 
     let bestScore = Math.max(...scores);
 
